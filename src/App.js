@@ -6,7 +6,7 @@ import React, { useState, createContext, useEffect } from "react";
 import GameOver from "./components/GameOver";
 import Footer from "./components/Footer";
 import { BiRefresh } from 'react-icons/bi';
-import { BsFillQuestionCircleFill } from 'react-icons/bs';
+import { TbHexagonNumber5 } from 'react-icons/tb';
 
 export const AppContext = createContext();
 
@@ -15,7 +15,6 @@ function App() {
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letter: 0 });
   const [wordSet, setWordSet] = useState(new Set());
   const [correctWord, setCorrectWord] = useState("");
-  const [hideKB, setHideKB] = useState(false);
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,
@@ -44,12 +43,11 @@ function App() {
 
     if (currWord === correctWord) {
       setGameOver({ gameOver: true, guessedWord: true });
-      console.log('FJB');
       return;
     }
-    console.log(`current attempt: ${currAttempt.attempt}`);
-    console.log(`current word: ${currWord}`);
-    console.log(`correct word: ${correctWord}`);
+    // console.log(`current attempt: ${currAttempt.attempt}`);
+    // console.log(`current word: ${currWord}`);
+    // console.log(`correct word: ${correctWord}`);
     if (currAttempt.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false });
       return;
@@ -84,7 +82,7 @@ function App() {
       <nav>
         <h1>
           Wordle Game
-          &nbsp;<BsFillQuestionCircleFill />
+          &nbsp;<TbHexagonNumber5 />
         </h1>
       </nav>
       <AppContext.Provider
@@ -105,7 +103,6 @@ function App() {
         <div className="game">
           <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
-          {/* {!hideKB ? <Keyboard /> : <> </>} */}
         </div>
       </AppContext.Provider>
       <div className="btn">
