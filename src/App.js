@@ -15,6 +15,7 @@ function App() {
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letter: 0 });
   const [wordSet, setWordSet] = useState(new Set());
   const [correctWord, setCorrectWord] = useState("");
+  const [hideKB, setHideKB] = useState(false);
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,
@@ -33,7 +34,7 @@ function App() {
 
     let currWord = "";
     for (let i = 0; i < 5; i++) {
-      currWord += board[currAttempt.attempt][i];
+      currWord += board[currAttempt.attempt][i].toLowerCase();
     }
     if (wordSet.has(currWord.toLowerCase())) {
       setCurrAttempt({ attempt: currAttempt.attempt + 1, letter: 0 });
@@ -43,9 +44,12 @@ function App() {
 
     if (currWord === correctWord) {
       setGameOver({ gameOver: true, guessedWord: true });
+      console.log('FJB');
       return;
     }
-    console.log(currAttempt);
+    console.log(`current attempt: ${currAttempt.attempt}`);
+    console.log(`current word: ${currWord}`);
+    console.log(`correct word: ${correctWord}`);
     if (currAttempt.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false });
       return;
@@ -100,8 +104,8 @@ function App() {
       >
         <div className="game">
           <Board />
-          {gameOver.gameOver ? <GameOver /> : <> </>}
-          {!gameOver.gameOver ? <Keyboard /> : <> </>}
+          {gameOver.gameOver ? <GameOver /> : <Keyboard />}
+          {/* {!hideKB ? <Keyboard /> : <> </>} */}
         </div>
       </AppContext.Provider>
       <div className="btn">

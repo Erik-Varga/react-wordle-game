@@ -21,9 +21,15 @@ function GameOver() {
           : "You Failed to Guess the Word"}
       </h3>
       <h1>Correct Word: {correctWord}</h1>
-      {gameOver.guessedWord && (
+
+      {gameOver.guessedWord && currAttempt.attempt == 1 && (
+        <h3>You guessed in {currAttempt.attempt} attempt</h3>
+      )}
+      
+      {gameOver.guessedWord && currAttempt.attempt > 1 && (
         <h3>You guessed in {currAttempt.attempt} attempts</h3>
       )}
+
     </div>
   );
 }
