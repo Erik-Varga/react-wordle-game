@@ -38,15 +38,16 @@ nav h1 {
   margin: 0;
   font-family: inherit;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .game {
   width: 100%;
-  height: calc(100vh - 140px);
+  height: 100%;
+  height: calc(100vh - 180px);
   display: flex;
   align-items: center;
-  padding-top: 5px;
+  padding: 1px;
   flex-direction: column;
 }
 
@@ -94,7 +95,7 @@ nav h1 {
 .keyboard {
   width: 22rem;
   height: 4rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .line1,
