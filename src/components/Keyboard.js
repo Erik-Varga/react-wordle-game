@@ -66,7 +66,7 @@ function Keyboard() {
         })}
       </div>
       <div className="line3">
-        <Key keyVal={"DEL"} bigKey />
+        <Key keyVal={"DELETE"} bigKey />
         {keys3.map((key) => {
           return <Key keyVal={key} disabled={disabledLetters.includes(key)} />;
         })}

@@ -100,7 +100,8 @@ function App() {
       >
         <div className="game">
           <Board />
-          {gameOver.gameOver ? <GameOver /> : <Keyboard />}
+          {gameOver.gameOver ? <GameOver /> : <> </>}
+          {!gameOver.gameOver ? <Keyboard /> : <> </>}
         </div>
       </AppContext.Provider>
       <div className="btn">
