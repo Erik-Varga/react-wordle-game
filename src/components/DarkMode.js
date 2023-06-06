@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './DarkMode.css'
 
 const DarkMode = () => {
-  
+
   const setDarkMode = () => {
     document.querySelector('body').setAttribute('data-theme', 'dark');
     localStorage.setItem('theme-color', 'dark');
@@ -15,7 +15,7 @@ const DarkMode = () => {
 
   const toggleTheme = (e) => {
       if (e.target.checked) {
-        setDarkMode()
+        setDarkMode();
       } else {
         setLightMode();
       }
