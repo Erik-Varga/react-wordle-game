@@ -17,7 +17,7 @@ function Letter({ letterPos, attemptVal }) {
       // console.log(letter);
       setDisabledLetters((prev) => [...prev, letter]);
     }
-  }, [currAttempt.attempt, almost, correct, letter, setDisabledLetters]);
+  }, [currAttempt.attempt]);
   return (
     <div className="letter" id={letterState}>
       {letter}

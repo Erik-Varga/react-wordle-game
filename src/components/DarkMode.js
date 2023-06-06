@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './DarkMode.css'
 
 const DarkMode = () => {
-    const setDarkMode = () => {
-        document.querySelector('body').setAttribute('data-theme', 'dark');
-    }
-    
-    const setLightMode = () => {
-        document.querySelector('body').setAttribute('data-theme', 'light');
-    }
+  
+  const setDarkMode = () => {
+    document.querySelector('body').setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme-color', 'dark');
+  }
+  
+  const setLightMode = () => {
+    document.querySelector('body').setAttribute('data-theme', 'light');
+    localStorage.setItem('theme-color', 'light');
+  }
 
-    const toggleTheme = (e) => {
-        if (e.target.checked) setDarkMode();
-        else setLightMode();
-    };
+  const toggleTheme = (e) => {
+      if (e.target.checked) {
+        setDarkMode()
+      } else {
+        setLightMode();
+      }
+  };
 
   return (
     <div className="dark_mode">
