@@ -7,6 +7,7 @@ import GameOver from "./components/GameOver";
 import Footer from "./components/Footer";
 import { BiRefresh } from 'react-icons/bi';
 import { TbHexagonNumber5 } from 'react-icons/tb';
+import DarkMode from "./components/DarkMode";
 
 export const AppContext = createContext();
 
@@ -15,6 +16,7 @@ function App() {
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letter: 0 });
   const [wordSet, setWordSet] = useState(new Set());
   const [correctWord, setCorrectWord] = useState("");
+  const [wordCount, setWordCount] = useState(0);
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,
@@ -25,6 +27,7 @@ function App() {
     generateWordSet().then((words) => {
       setWordSet(words.wordSet);
       setCorrectWord(words.todaysWord);
+      setWordCount(words.wordCount);
     });
   }, []);
 
@@ -84,6 +87,9 @@ function App() {
           Wordle Game
           &nbsp;<TbHexagonNumber5 />
         </h1>
+        <div className='toggleBtn'>
+          <DarkMode />
+        </div>
       </nav>
       <AppContext.Provider
         value={{
@@ -104,6 +110,7 @@ function App() {
           <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
+          <small>{wordCount} words</small>
       </AppContext.Provider>
       <div className="btn">
         <BiRefresh onClick={restartGame} />

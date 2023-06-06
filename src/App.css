@@ -1,44 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Josefin+Sans:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
 
+:root {
+  --body_background: whitesmoke;
+  --body_color: black;
+  --text_color: black;
+}
+
+[data-theme='dark'] {
+  --body_background: #121212;
+  --body_color: whitesmoke;
+  --text_color: whitesmoke;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background-color: var(--body_background);
+  color: var(--text_color)
+}
+
+.dark_mode {
+  display: flex;
+  align-items: center;
+}
+
+.for_light_theme {
+  --primary-color: #302ae6;
+  --secondary-color: #536390;
+  --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922;
+}
+
+.for_dark_theme {
+  --primary-color: #9a97f3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --bg-color: #161625;
+  --heading-color: #818cab;
 }
 
 .App {
   padding: 0;
   margin: 0;
   text-align: center;
-  background-color: #121212;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  color: white;
+  color: var(--body_color);
   font-family: 'Open Sans', sans-serif;
 }
 
 nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: auto;
   width: 100%;
   margin: 0;
   border-bottom: 1px solid grey;
-  display: grid;
-  place-items: center;
+  /* display: grid; */
+  /* place-items: center; */
 }
 
 nav h1 {
   display: flex;
   align-items: center;
-  padding-bottom: 5px;
-}
-
-nav h1 {
+  padding: 5px;
   margin: 0;
   font-family: inherit;
-  color: white;
-  font-size: 1.5rem;
+  color: var(--text_color);
+  font-size: 1.25rem;
+}
+
+.toggleBtn {
+  position: absolute;
+  right: 1rem;
 }
 
 .game {
@@ -54,7 +93,7 @@ nav h1 {
 .board {
   width: 95%;
   height: 70%;
-  border: 1px solid black;
+  border: 1px solid var(--body_background);
   display: flex;
   flex-direction: column;
 }
@@ -76,20 +115,24 @@ nav h1 {
   place-items: center;
   font-size: 1.75rem;
   font-weight: bolder;
-  color: white;
+  color: var(--body_color);
   font-family: inherit;
 }
 
 #correct {
   background-color: #528d4e;
+  color: whitesmoke;
 }
 
 #almost {
-  background-color: #b49f39;
+  /* background-color: #b49f39; */
+  background-color: #3987b4;
+  color: whitesmoke;
 }
 
 #error {
   background-color: #3a393c;
+  color: whitesmoke;
 }
 
 .keyboard {
@@ -109,7 +152,7 @@ nav h1 {
 
 .key:hover {
   filter: brightness(110%);
-  border: 1px solid yellow;
+  border: 1px solid whitesmoke;
 }
 
 .key {
@@ -121,8 +164,8 @@ nav h1 {
   display: grid;
   place-items: center;
   font-size: 1rem;
-  background-color: grey;
-  color: white;
+  background-color: lightgrey;
+  color: black;
   font-family: inherit;
   cursor: pointer;
 }
@@ -130,24 +173,26 @@ nav h1 {
 #big {
   width: 4rem;
 }
+
 #disabled {
   background-color: #3a393c;
+  color: grey;
 }
 
 .btn {
-  color: white;
+  /* color: var(--text_color); */
   background-color: transparent;
   font-size: 1.5rem;
-  padding: 5px;
+  padding: 1px;
 }
 
 .btn:hover {
-  color: greenyellow;
+  color: white;
 }
   
 
 .footer a {
-  color: whitesmoke;
+  color: var(--text_color);
   text-decoration: none;
   font-size: 0.8rem;
 }
